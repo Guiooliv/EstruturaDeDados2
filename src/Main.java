@@ -12,6 +12,8 @@ public class Main {
         System.out.println("---printing post order---");
         tree.postOrder();
         System.out.println("-----------------------");
+        System.out.println(tree.search(20).info);
+
 
     }
 }
