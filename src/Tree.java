@@ -22,12 +22,14 @@ public class Tree {
             if (value < root.info) {
                 if (root.left == null) {
                     root.left = new TreeNode(value);
+                    root.left.parent = root;
                 } else {
                     insert(root.left, value);
                 }
             } else {
                 if (root.right == null) {
                     root.right = new TreeNode(value);
+                    root.right.parent = root;
                 } else {
                     insert(root.right, value);
                 }
@@ -87,4 +89,42 @@ public class Tree {
             }
         }
     }
+
+    public TreeNode minimun(TreeNode root){
+        if(root.left != null){
+            return minimun(root.left);
+        }
+        return root;
+    }
+
+
+
+    public void delete(int value){
+        TreeNode node = search(value);
+        if(node.left == null & node.right == null) {
+            if (node.info <= node.parent.info) {
+                node.parent.left = null;
+            } else {
+                node.parent.right = null;
+            }
+        } else if (node.left != null && node.right == null){
+            if(node.info <= node.parent.info){
+                node.parent.left = node.left;
+            } else {
+                node.parent.right = node.left;
+            }
+        } else if(node.right != null && node.left == null){
+            if(node.info <= node.parent.info){
+                node.parent.left = node.right;
+            } else {
+                node.parent.right = node.right;
+            }
+        } else {
+            TreeNode suss = minimun(node.right);
+            delete(suss.info);
+            node.info = suss.info;
+        }
+    }
+
+
 }
