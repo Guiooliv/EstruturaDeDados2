@@ -90,31 +90,30 @@ public class Tree {
         }
     }
 
-    public TreeNode minimun(TreeNode root){
-        if(root.left != null){
+    public TreeNode minimun(TreeNode root) {
+        if (root.left != null) {
             return minimun(root.left);
         }
         return root;
     }
 
 
-
-    public void delete(int value){
+    public void delete(int value) {
         TreeNode node = search(value);
-        if(node.left == null & node.right == null) {
+        if (node.left == null & node.right == null) {
             if (node.info <= node.parent.info) {
                 node.parent.left = null;
             } else {
                 node.parent.right = null;
             }
-        } else if (node.left != null && node.right == null){
-            if(node.info <= node.parent.info){
+        } else if (node.left != null && node.right == null) {
+            if (node.info <= node.parent.info) {
                 node.parent.left = node.left;
             } else {
                 node.parent.right = node.left;
             }
-        } else if(node.right != null && node.left == null){
-            if(node.info <= node.parent.info){
+        } else if (node.right != null && node.left == null) {
+            if (node.info <= node.parent.info) {
                 node.parent.left = node.right;
             } else {
                 node.parent.right = node.right;
@@ -126,5 +125,50 @@ public class Tree {
         }
     }
 
+    public TreeNode simple_rotation(TreeNode node) {
+        TreeNode son = node.right;
+        node.right = son.left;
+        son.left.parent = node;
+        son.left = node;
+        node.parent = son;
+        return son;
+    }
+
+
+    public int max() {
+        TreeNode node = root;
+        while (node.right != null) {
+            if (node.info < node.right.info) {
+                node = node.right;
+            }
+        }
+        return node.info;
+    }
+
+    public int min() {
+        TreeNode node = root;
+        while (node.left != null) {
+            if (node.info > node.left.info) {
+                node = node.left;
+            }
+        }
+        return node.info;
+    }
+
+    public int count_leaves(){
+        return count_leaves(root);
+    }
+
+
+    public int count_leaves(TreeNode node) {
+       if(node == null){
+           return 0;
+       } else if (node.left == null && node.right == null) {
+           return 1;
+       }
+        int contLeft = count_leaves(node.left);
+        int contRight = count_leaves(node.right);
+        return contRight+contLeft;
+    }
 
 }
