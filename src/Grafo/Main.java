@@ -1,7 +1,5 @@
 package Grafo;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 public class Main {
     public static void main(String[] args) {
         //Criando o grafo
@@ -20,6 +18,10 @@ public class Main {
         g.adicionarVertice(v2);
         g.adicionarVertice(v3);
         g.adicionarVertice(v4);
+        g.adicionarVertice(v5);
+        g.adicionarVertice(v6);
+        g.adicionarVertice(v7);
+
         //Criando e incluindo as arestas no grafo
         g.adicionarAresta(2, v1, v2); // 0 - 1
         g.adicionarAresta(6, v1, v3); // 0 - 2
@@ -29,8 +31,6 @@ public class Main {
         g.adicionarAresta(15, v4, v6); // 3 - 5
         g.adicionarAresta(6, v5, v6); // 4 - 5
         g.adicionarAresta(2, v5, v7); // 4 - 6
-        g.adicionarAresta(6, v4, v5); // 5 - 6
-
 
         for (Vertice e : g.buscaEmProdundidade(v1)) {
             System.out.println(e.info);
@@ -40,9 +40,7 @@ public class Main {
         for (Vertice e : g.buscaEmLargura(v1)) {
             System.out.println(e.info);
         }
-
-
-
-
+        System.out.println("----------");
+        g.dijkstra(v1);
     }
 }
