@@ -113,31 +113,4 @@ public class Grafo {
         }
         return index;
     }
-
-
-    /*
-    void dijkstra(origem) {
-        criar uma lista (lst) para os vértices
-
-        //Informando que os infos de todos vértices começam com infinito
-        para cada vértice v da lista de vértices DO GRAFO {
-            v.info = Double.POSITIVE_INFINITY (100000)
-            adicionar v à lista lst
-        }
-
-        info da origem = 0
-
-        enquanto a lista lst não estiver vazia {
-            remover da lista lst o vértice (u) de menor info
-            para cada adjacente w de u {
-                se w está presente na lista lst {
-                    distancia = info de u + peso da aresta(w,u)
-                    se distancia < info de w {
-                        info de w = distancia
-                    }
-                }
-            }
-        }
-    }
-    */
 }
