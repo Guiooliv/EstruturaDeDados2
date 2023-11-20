@@ -1,3 +1,5 @@
+package Arvore;
+
 public class TreeNode {
     public int info;
     public TreeNode left;

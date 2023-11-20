@@ -1,3 +1,5 @@
+package Arvore;
+
 public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree(8);
@@ -22,10 +24,7 @@ public class Main {
         System.out.println("---deleting node with a child---");
         tree.delete(3);
         tree.preOrder();
-        System.out.println("---returning the largest number---");
-        System.out.println(tree.max());
-        System.out.println("---returning the smallest number---");
-        System.out.println(tree.min());
+
 
 
 

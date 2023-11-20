@@ -1,3 +1,5 @@
+package Arvore;
+
 public class Tree {
     public TreeNode root;
 
@@ -170,5 +172,4 @@ public class Tree {
         int contRight = count_leaves(node.right);
         return contRight+contLeft;
     }
-
 }
